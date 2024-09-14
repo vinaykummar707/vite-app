@@ -1,17 +1,17 @@
 import {StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'
-import App from './App.tsx'
-// Import styles of packages that you've installed.
-// All packages except `@mantine/hooks` require styles imports
 import '@mantine/core/styles.css';
 import './index.css'
 
 
-import {createTheme, MantineProvider, MantineTheme, rem} from '@mantine/core';
-const theme: MantineTheme = createTheme({
+import {createTheme, MantineProvider, MantineThemeOverride, rem} from '@mantine/core';
+import {QueryClient, QueryClientProvider} from "react-query";
+import {RouterProvider} from "react-router-dom";
+import {router} from "./routes.tsx";
+const theme: MantineThemeOverride = createTheme({
 
     primaryColor: 'brand',
-    fontFamily: 'DM Sans',
+    fontFamily: 'satoshi',
     fontSizes: {
         xxl: rem(22)
     },
@@ -25,10 +25,20 @@ const theme: MantineTheme = createTheme({
     },
 })
 
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            refetchOnWindowFocus: false,
+        },
+    },
+});
+
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <MantineProvider theme={theme}>
-            <App/>
-        </MantineProvider>
+        <QueryClientProvider client={queryClient}>
+            <MantineProvider theme={theme}>
+                <RouterProvider router={router}/>
+            </MantineProvider>
+        </QueryClientProvider>
     </StrictMode>,
 )

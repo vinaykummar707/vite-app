@@ -30,7 +30,7 @@ export const ShiftsPage = () => {
     return (
 
            <Flex flex={'1'} h={'100vh'} direction={'row'}>
-               <Flex bg={''} w={'32%'} >
+               <Flex bg={''} w={'30%'} >
                </Flex>
                <Flex
                    gap="md"

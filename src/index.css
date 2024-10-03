@@ -1,11 +1,11 @@
 @font-face {
-    font-family: 'generalSans';
-    font-style: normal;
-    src: url('/src/assets/fonts/GeneralSans.woff2') format('woff2');
+  font-family: "generalSans";
+  font-style: normal;
+  src: url("/src/assets/fonts/GeneralSans.woff2") format("woff2");
 }
 
 @font-face {
-    font-family: 'satoshi';
-    font-style: normal;
-    src: url('/src/assets/fonts/Satoshi.woff2') format('woff2');
+  font-family: "satoshi";
+  font-style: normal;
+  src: url("/src/assets/fonts/Satoshi.woff2") format("woff2");
 }
